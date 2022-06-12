@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&display=swap');
+
+:root {
+  --main-color    : hsl(214, 47%, 23%);
+  --text-color    : #FFFFFB;
+  --drk-text-color: hsl(229, 25%, 31%);
+  --body-color    : radial-gradient(circle, hsl(214, 47%, 23%) 0%, hsl(237, 49%, 15%) 100%);
+}
+
+body {
+  padding: 1rem;
+  background: var(--body-color);
+  color: var(--text-color);
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 600;
+}
