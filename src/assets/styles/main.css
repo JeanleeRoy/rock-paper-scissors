@@ -2,9 +2,11 @@
 
 :root {
   --main-color    : hsl(214, 47%, 23%);
-  --text-color    : #FFFFFB;
+  --content-color : #FFFFFB;
+  --score-text    : hsl(229, 64%, 46%);
   --drk-text-color: hsl(229, 25%, 31%);
-  --body-color    : radial-gradient(circle, hsl(214, 47%, 23%) 0%, hsl(237, 49%, 15%) 100%);
+  --header-outline: hsl(217, 16%, 45%);
+  --body-color    : linear-gradient(180deg, hsl(214, 47%, 23%) 0%, hsl(237, 49%, 15%) 100%);
 }
 
 * {
@@ -22,7 +24,13 @@ body {
   height: 100%;
   background: var(--body-color);
   background-size: cover;
-  color: var(--text-color);
+  color: var(--content-color);
   font-family: 'Barlow Semi Condensed', sans-serif;
   font-weight: 600;
+}
+
+@media (min-width: 375px) {
+  :root {
+    --body-color: radial-gradient(circle, hsl(214, 47%, 23%) 0%, hsl(237, 49%, 15%) 100%);
+  }
 }
