@@ -10,9 +10,9 @@
   --paper-color   : hsl(229, 89%, 64%);
   --paper-color-2 : hsl(229, 66%, 46%);
   --rock-color    : hsl(349, 71%, 52%);
-  --rock-color-2  : hsl(349, 70%, 56%);
+  --rock-color-2  : hsl(346, 74%, 35%);
   --scissors-color: hsl(39, 89%, 49%);
-  --scissors-color-2: hsl(40, 84%, 53%);
+  --scissors-color-2: hsl(29, 71%, 44%);
 
   --body-color    : linear-gradient(180deg, hsl(214, 47%, 23%) 0%, hsl(237, 49%, 15%) 100%);
 }
