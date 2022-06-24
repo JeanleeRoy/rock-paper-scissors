@@ -36,13 +36,6 @@ const gameItems = [
     <div class="start-game">
         <div class="parent_polygon">
             <img class="main-triangle" src="../../assets/images/bg-triangle.svg" alt="Triangle">
-            <!-- <div class="game-item">
-                <div class="game-item-content">
-                    <button class="ring">
-                        <img src="../../assets/images/icon-paper.svg" alt="">
-                    </button>
-                </div>
-            </div> -->
             <Button 
                 v-for="item in gameItems"
                 v-bind="item"

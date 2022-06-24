@@ -6,6 +6,14 @@
   --score-text    : hsl(229, 64%, 46%);
   --drk-text-color: hsl(229, 25%, 31%);
   --header-outline: hsl(217, 16%, 45%);
+
+  --paper-color   : hsl(229, 89%, 64%);
+  --paper-color-2 : hsl(229, 66%, 46%);
+  --rock-color    : hsl(349, 71%, 52%);
+  --rock-color-2  : hsl(349, 70%, 56%);
+  --scissors-color: hsl(39, 89%, 49%);
+  --scissors-color-2: hsl(40, 84%, 53%);
+
   --body-color    : linear-gradient(180deg, hsl(214, 47%, 23%) 0%, hsl(237, 49%, 15%) 100%);
 }
 
@@ -27,6 +35,11 @@ body {
   color: var(--content-color);
   font-family: 'Barlow Semi Condensed', sans-serif;
   font-weight: 600;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
 }
 
 @media (min-width: 375px) {
