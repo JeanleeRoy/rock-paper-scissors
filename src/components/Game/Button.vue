@@ -12,73 +12,78 @@ const btnImage = new URL(imgSrc, import.meta.url).href
 </script>
 
 <template>
-    <div class="game-item" :style="itemStyle">
-        <div class="game-item-content">
-            <button class="game-btn">
-                <img :src="btnImage" :alt="itemName">
-            </button>
-        </div>
-    </div>
+    <button class="game-btn">
+        <img :src="btnImage" :alt="itemName">
+    </button>
 </template>
 
 <style scoped>
-.game-item {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    transition: all ease .5s;
-}
-.game-item-content {
-    position: relative;
-    width: 121px;
-    height: 121px;
-    border-radius: 50%;
-    background-color: #E3E3E3;
-}
-.game-item img {
-    width: fit-content;
-    height: fit-content;
-    transform: translateX(-3px);
-    z-index: 1;
-}
-.game-item .game-btn {
-    position: absolute;
+.game-btn {
     display: flex;
-    bottom: 0;
-    width: 118px;
-    height: 118px;
-    align-items: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
     justify-content: center;
-    border-radius: 50%;
-    outline: 17px solid v-bind(primaryColor);
-    border-top: 6px solid #BEC0D5;
-    z-index: 3;
-}
-.game-item .game-btn::after {
-    position: absolute;
-    content: "";
-    left: -12px;
-    top: 0;
-    width: calc(100% + 24px);
-    height: calc(100% + 14px);
-    border-radius: 50%;
-    border-bottom: 6px solid v-bind(secondaryColor);
-    z-index: 1;
-}
-.game-item .game-btn:active {
-    border-top: 7px solid #BEC0D5;
-    height: 116px;
-}
-.game-item .game-btn:active img{
-    transform: translateX(-3px) scaleY(.95);
+    align-items: center;
+    background-color: #E3E3E3;
+    border: 14px solid v-bind(primaryColor);
+    box-shadow: 0 5px 0 v-bind(secondaryColor),
+                0 5px 5px #00000055,
+                inset 0 4px 0 #BEC0D5;
 }
 
-@media (max-width: 400px) {
-    .game-item {
-        transform: scale(.8);
+.game-btn img {
+    width: 43px;
+    height: 43px;
+    object-fit: contain;
+    transform: translateY(2px);
+}
+
+.game-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 v-bind(secondaryColor),
+                0 5px 5px #0000002d,
+                inset 0 4px 0 #BEC0D5;
+}
+
+
+/* For large screens */
+
+@media (min-width: 480px) {
+    .game-btn {
+        width: 130px;
+        height: 130px;
+        border-width: 19px;
+        box-shadow: 0 8px 0 v-bind(secondaryColor),
+                0 8px 8px #00000055,
+                inset 0 7px 0 #BEC0D5;
     }
-    .game-item img {
-        transform: scale(1.1);
+    .game-btn img {
+        width: 68px;
+        height: 68px;
+        transform: translate(-1px, 2px);
+    }
+}
+
+@media (min-width: 760px) {
+    .game-btn {
+        width: 160px;
+        height: 160px;
+        border-width: 25px;
+        box-shadow: 0 9px 0 v-bind(secondaryColor),
+                0 9px 10px #00000055,
+                inset 0 8px 0 #BEC0D5;
+    }
+    .game-btn img {
+        width: 84px;
+        height: 84px;
+        transform: translate(-1px, 2px);
+    }
+    .game-btn:active {
+        transform: translateY(5px);
+        box-shadow: 0 4px 0 v-bind(secondaryColor),
+                    0 6px 6px #0000002d,
+                    inset 0 4px 0 #BEC0D5;
     }
 }
 </style>
