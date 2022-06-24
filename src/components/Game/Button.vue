@@ -12,12 +12,19 @@ const btnImage = new URL(imgSrc, import.meta.url).href
 </script>
 
 <template>
-    <button class="game-btn">
-        <img :src="btnImage" :alt="itemName">
-    </button>
+    <div class="game-item">
+        <button class="game-btn">
+            <img :src="btnImage" :alt="itemName">
+        </button>
+    </div>
 </template>
 
 <style scoped>
+.game-item {
+    width: fit-content;
+    height: fit-content;
+    padding-bottom: 5px;
+}
 .game-btn {
     display: flex;
     width: 90px;
