@@ -1,11 +1,13 @@
 <script setup>
+import Start from './Start.vue';
 defineProps({
     msg: String
 })
 </script>
 
 <template>
-    <div>
+    <div class="game">
+        <Start />
         <!-- TODO -->
         You Picked - 
         The House Picked - 
