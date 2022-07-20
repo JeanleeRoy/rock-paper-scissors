@@ -1,6 +1,10 @@
 <script setup>
 import Button from './Button.vue';
 
+const props = defineProps({
+    setChoice: { type: Function, required: true }
+})
+
 </script>
 
 <template>
@@ -13,18 +17,21 @@ import Button from './Button.vue';
                 :primary-color="'var(--paper-color)'"
                 :secondary-color="'var(--paper-color-2)'"
                 class="g-btn g-btn-paper"
+                @click="setChoice('paper')"
             />
             <Button 
                 :item-name="'scissors'"
                 :primary-color="'var(--scissors-color)'"
                 :secondary-color="'var(--scissors-color-2)'"
                 class="g-btn g-btn-scissors"
+                @click="setChoice('scissors')"
             />
             <Button 
                 :item-name="'rock'"
                 :primary-color="'var(--rock-color)'"
                 :secondary-color="'var(--rock-color-2)'"
                 class="g-btn g-btn-rock"
+                @click="setChoice('rock')"
             />
 
         </div>

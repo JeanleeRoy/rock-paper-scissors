@@ -3,6 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 
 const props = defineProps({
     result: { type: String, required: true },
+    playAgain: { type: Function, required: true }
 })
 
 const textResult = computed(() => (
@@ -15,7 +16,7 @@ const textResult = computed(() => (
     <div class="game-result">
         <div class="result-content">
             <h3> {{textResult}} </h3>
-            <button>PLAY AGAIN</button>
+            <button @click="playAgain()">PLAY AGAIN</button>
         </div>
     </div>
 </template>

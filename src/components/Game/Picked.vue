@@ -5,6 +5,8 @@ import Result from './Result.vue';
 
 const props = defineProps({
     pickedItem: { type: String, required: false, default: "paper" },
+    evaluateChoice: { type: Function, required: true },
+    playAgain: { type: Function, required: true }
 })
 
 const items = ['paper', 'scissors', 'rock']
@@ -16,13 +18,13 @@ const setHouseChoice = () => {
 }
 
 const setGameResult = () => {
-    gameResut.value = 'WIN'
+    gameResut.value = props.evaluateChoice(props.pickedItem, houseChoice.value)
 }
 
 onMounted(() => {
     setTimeout(() => {
         setHouseChoice()
-        setTimeout(() => setGameResult(), 1000)
+        setTimeout(() => setGameResult(), 1500)
     }, 1500)
 })
 
@@ -48,7 +50,10 @@ onMounted(() => {
         </div>
 
         <template v-if="gameResut">
-            <Result class="result" :result="gameResut"/>
+            <Result class="result" 
+                :result="gameResut" 
+                :play-again="playAgain"
+            />
         </template>
     </div>
 </template>
