@@ -35,6 +35,7 @@ body {
   color: var(--content-color);
   font-family: 'Barlow Semi Condensed', sans-serif;
   font-weight: 600;
+  overflow-x: hidden;
 }
 
 button {
