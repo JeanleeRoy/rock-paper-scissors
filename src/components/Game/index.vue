@@ -18,8 +18,10 @@ const beats = {
 
 const setPlayerChoice = (choice) => {
     playerChoice.value = choice
-    showResult.value = true
-    showStart.value = false
+    setTimeout(() => {
+        showResult.value = true
+        showStart.value = false
+    }, 300)
 }
 
 const evaluateChoice = (playerPick, housePick) => {

@@ -24,8 +24,8 @@ const setGameResult = () => {
 onMounted(() => {
     setTimeout(() => {
         setHouseChoice()
-        setTimeout(() => setGameResult(), 1500)
-    }, 1500)
+        setTimeout(() => setGameResult(), 700)
+    }, 900)
 })
 
 </script>
