@@ -29,6 +29,9 @@ const textResult = computed(() => (
     justify-content: center;
     align-items: center;
 }
+.game-result {
+    margin-bottom: 3rem;
+}
 .game-result h3 {
     width: 100%;
     text-align: center;

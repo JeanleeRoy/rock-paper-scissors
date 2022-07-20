@@ -45,6 +45,7 @@ const props = defineProps({
     padding: 1rem;
     margin-top: 50px;
     justify-content: center;
+    padding-bottom: 5rem;
 }
 .parent_polygon {
     position: relative;
@@ -58,6 +59,7 @@ img.main-triangle {
 .g-btn {
     position: absolute;
     top: auto;
+    z-index: 10;
 }
 .g-btn-paper {
     top: 0;
