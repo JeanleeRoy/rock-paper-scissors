@@ -10,12 +10,6 @@ defineProps({
     <div class="game">
         <!-- <Start /> -->
         <Picked :picked-item="'paper'"/>
-
-        <!-- TODO -->
-        You Win - 
-        You Lose - 
-
-        Play Again
     </div>
 </template>
 

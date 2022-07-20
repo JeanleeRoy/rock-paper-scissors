@@ -1,64 +1,89 @@
 <script setup>
-import { ref, computed } from 'vue'
-import Button from './Button.vue';
+import { ref, computed, onMounted } from 'vue'
+import ButtonWrapper from './ButtonWrapper.vue';
+import Result from './Result.vue';
 
 const props = defineProps({
     pickedItem: { type: String, required: false, default: "paper" },
 })
 
 const items = ['paper', 'scissors', 'rock']
+const houseChoice = ref('')
+const gameResut = ref('') // WIN | LOSE | TIE
 
-const getHouseChoice = () => (
-    items[Math.floor(Math.random()*items.length)]
-)
+const setHouseChoice = () => {
+    houseChoice.value = items[Math.floor(Math.random()*items.length)]
+}
+
+const setGameResult = () => {
+    gameResut.value = 'WIN'
+}
+
+onMounted(() => {
+    setTimeout(() => {
+        setHouseChoice()
+        setTimeout(() => setGameResult(), 1000)
+    }, 1500)
+})
 
 </script>
 
 <template>
-    <div class="container">
-        <div class="picked user-picked">
+    <div class="container" :class="{span: gameResut}">
+        <div class="picked player-picked">
             <h2>YOU PICKED</h2>
-            <div class="btn-wrapper">
-                <Button 
-                    :item-name="pickedItem"
-                    :is-clickable="false"
-                />
-            </div>
+            <ButtonWrapper 
+                :item-name="pickedItem"
+                :show-rings="gameResut === 'WIN'"
+            />
         </div>
+        
         <div class="picked house-picked">
             <h2>THE HOUSE PICKED</h2>
-            <div class="btn-wrapper">
-                <Button 
-                    :item-name="getHouseChoice()"
-                    :is-clickable="false"
-                 />
-            </div>
+            <ButtonWrapper 
+                :item-name="houseChoice"
+                :show="houseChoice !== ''"
+                :show-rings="gameResut === 'LOSE'"
+            />
         </div>
+
+        <template v-if="gameResut">
+            <Result class="result" :result="gameResut"/>
+        </template>
     </div>
 </template>
 
 <style scoped>
 .container {
-    display: flex;
+    display: grid;
     width: 100%;
-    max-width: 350px;
+    max-width: 450px;
     margin: auto;
     padding: 0 1rem;
-    justify-content: space-between;
+    padding-top: 3rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "player house"
+        "result result";
 }
 .picked {
     display: inline-flex;
     flex-direction: column-reverse;
+    /* justify-content: start; */
+}
+.house-picked {
+    grid-area: house;
+}
+.player-picked {
+    grid-area: player;
 }
 .picked h2 {
     text-align: center;
     font-size: 1rem;
     margin: 2rem 0 3rem;
 }
-.btn-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
+.result {
+    grid-area: result;
 }
 
 
@@ -66,13 +91,20 @@ const getHouseChoice = () => (
 
 @media (min-width: 480px) {
     .container {
-        max-width: 550px;
+        padding-top: 2rem;
+        max-width: 600px;
     }
 }
 
 @media (min-width: 760px) {
     .container {
         max-width: 700px;
+        padding-top: 1rem;
+    }
+    .container.span {
+        max-width: 800px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: "player result house";
     }
     .picked {
         flex-direction: column;
