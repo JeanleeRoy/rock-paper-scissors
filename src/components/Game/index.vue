@@ -1,5 +1,6 @@
 <script setup>
 import Start from './Start.vue';
+import Picked from './Picked.vue';
 defineProps({
     msg: String
 })
@@ -7,11 +8,10 @@ defineProps({
 
 <template>
     <div class="game">
-        <Start />
-        <!-- TODO -->
-        You Picked - 
-        The House Picked - 
+        <!-- <Start /> -->
+        <Picked :picked-item="'paper'"/>
 
+        <!-- TODO -->
         You Win - 
         You Lose - 
 
