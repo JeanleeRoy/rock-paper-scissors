@@ -4,7 +4,8 @@ import { computed } from '@vue/reactivity';
 const props = defineProps({
     itemName: { type: String, required: true },
     primaryColor: { type: String },
-    secondaryColor: { type: String }
+    secondaryColor: { type: String },
+    isClickable: {type: Boolean, default: true}
 })
 
 const firstColor = computed(() => (
@@ -24,7 +25,7 @@ const btnImage = computed(() => {
 
 <template>
     <div class="game-item">
-        <button class="game-btn">
+        <button class="game-btn" :class="{clickable: isClickable, defaultPointer: !isClickable}">
             <img :src="btnImage" :alt="itemName">
         </button>
     </div>
@@ -57,11 +58,15 @@ const btnImage = computed(() => {
     transform: translateY(2px);
 }
 
-.game-btn:active {
+.game-btn.clickable:active {
     transform: translateY(2px);
     box-shadow: 0 3px 0 v-bind(secondColor),
                 0 5px 5px #0000002d,
                 inset 0 4px 0 #BEC0D5;
+}
+
+.game-btn.defaultPointer {
+    cursor: default;
 }
 
 
@@ -97,7 +102,7 @@ const btnImage = computed(() => {
         height: 84px;
         transform: translate(-1px, 2px);
     }
-    .game-btn:active {
+    .game-btn.clickable:active {
         transform: translateY(5px);
         box-shadow: 0 4px 0 v-bind(secondColor),
                     0 6px 6px #0000002d,
