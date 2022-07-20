@@ -2,8 +2,9 @@
 import Start from './Start.vue';
 import Picked from './Picked.vue';
 import { ref } from 'vue';
-defineProps({
-    msg: String
+
+const props = defineProps({
+    incrementScore: { type: Function, required: true }
 })
 
 const showStart = ref(true)
@@ -27,7 +28,11 @@ const setPlayerChoice = (choice) => {
 const evaluateChoice = (playerPick, housePick) => {
     if (playerPick === housePick) return 'TIE'
     let playerWin = beats[playerPick].includes(housePick)
-    return playerWin ? 'WIN' : 'LOSE'
+    if (playerWin) {
+        props.incrementScore()
+        return 'WIN'
+    }
+    else return 'LOSE'
 }
 
 const playAgain = () => {

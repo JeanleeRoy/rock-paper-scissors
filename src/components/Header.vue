@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  msg: String
+  score: { type: Number, default: 0 }
 })
 </script>
 
@@ -11,7 +11,7 @@ defineProps({
         <img src="../assets/images/logo.svg" alt="Game logo">
         <div class="score">
           <p class="title">SCORE</p>
-          <p class="value">12</p>
+          <p class="value">{{ score }}</p>
         </div>
       </div>
 
