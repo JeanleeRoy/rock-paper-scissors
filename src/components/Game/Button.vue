@@ -17,8 +17,7 @@ const secondColor = computed(() => (
 ))
 
 const btnImage = computed(() => {
-    let imgSrc = `../../assets/images/icon-${props.itemName}.svg`
-    return new URL(imgSrc, import.meta.url).href
+    return new URL(`../../assets/images/icon-${props.itemName}.svg`, import.meta.url).href
 })
 
 </script>
