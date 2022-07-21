@@ -10,12 +10,12 @@ const closeModal = () => {
 </script>
 
 <template>
-    <div class="r-container">
+    <div class="r-container" role="button">
         <button class="open" @click="openRules = true">RULES</button>
     </div>
     
     <Teleport to="body">
-        <div v-show="openRules">
+        <div v-show="openRules" role="contentinfo">
             <div class="modal">
                 <div class="modal-bg" @click="closeModal()"></div>
                 <div class="modal-content">

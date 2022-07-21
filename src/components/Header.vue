@@ -6,7 +6,7 @@ defineProps({
 
 <template>
     
-    <header>
+    <header role="menu">
       <div class="container">
         <img src="../assets/images/logo.svg" alt="Game logo">
         <div class="score">

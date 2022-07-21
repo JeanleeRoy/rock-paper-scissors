@@ -44,7 +44,7 @@ const playAgain = () => {
 </script>
 
 <template>
-    <div class="game">
+    <div class="game" role="main">
         <template v-if="showStart">
             <Start :set-choice="setPlayerChoice" />   
         </template>
