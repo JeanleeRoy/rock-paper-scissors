@@ -10,7 +10,7 @@ const closeModal = () => {
 </script>
 
 <template>
-    <div class="r-container" role="button">
+    <div class="r-container" role="contentinfo">
         <button class="open" @click="openRules = true">RULES</button>
     </div>
     
